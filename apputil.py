@@ -4,7 +4,18 @@ test_cases_exr1 = [9, 7, 16, 1, 4]
 
 
 #-----FUNCTION DEFS-----#
-def fibonacci(input):
+def fib(input):
+    """
+    Takes an initial input value, then starting with 0 and 1, adds the two together to get the next number and then adds that
+    with the previous number to get the n + 1. This process occurs x times where x is the integer input. So if the input is 9, the 
+    process happens 9 times until the final output of 34 is given which indicates the completion of the fibonacci series.
+
+    Function Parameters:
+    integer input (first integer is passed from outside the function and then it feeds itself)
+
+    Function returns:
+    returns itself (recursive) until it resolves giving the final output
+    """
     #if the initial input is 0 then return 0
     #this is also very important for the recursion and is integral for termination
 
@@ -16,7 +27,7 @@ def fibonacci(input):
         return 1
     else:
         #this is the core mechanism for the recursion
-        return fibonacci(input-1) + fibonacci(input-2)
+        return fib(input-1) + fib(input-2)
     
     #Explanation: This is how I thought about this problem. It can be very tricky but visualizing helps a ton
     #so basically, this recursion can be thought of visually as a tree. Each recursion cycle is a lower level
@@ -36,11 +47,11 @@ def fibonacci(input):
 
 
 #-----MAIN-----#
-print(fibonacci(test_cases_exr1[0]))
-print(fibonacci(test_cases_exr1[1]))
-print(fibonacci(test_cases_exr1[2]))
-print(fibonacci(test_cases_exr1[3]))
-print(fibonacci(test_cases_exr1[4]))
+print(fib(test_cases_exr1[0]))
+print(fib(test_cases_exr1[1]))
+print(fib(test_cases_exr1[2]))
+print(fib(test_cases_exr1[3]))
+print(fib(test_cases_exr1[4]))
 
 
 #EXERCISE 2------------------------------------------------------------------------------------------------------------------#
@@ -49,7 +60,18 @@ print(fibonacci(test_cases_exr1[4]))
 test_cases_exr2 = [7, 25, 16, 33, 16]
 
 #-----FUNCTION DEFS-----#
-def bin_converter(input):
+def to_binary(input):
+    """
+    This function takes in an integer and returns its binary representation. The function is designed to be recursive.
+
+    Function Parameters:
+    integer input
+
+    Function returns:
+    returns itself (as it is a recursive input) until all instances are resolved and the function collapses giving the final binary
+    representation of the inputted integer
+    """
+
     #for inputs 1 or 0
     if input == 1:
         return "1"
@@ -58,17 +80,17 @@ def bin_converter(input):
     else:
         #recursion
         #divide the input by 2, take the quotient and add it to the remainder...explain this later
-        return bin_converter(input // 2) + str(input % 2)
+        return to_binary(input // 2) + str(input % 2)
 
 
 
 #-----MAIN-----#
 #can replace with loop if have time
-print(bin_converter(test_cases_exr2[0]))   
-print(bin_converter(test_cases_exr2[1]))  
-print(bin_converter(test_cases_exr2[2]))  
-print(bin_converter(test_cases_exr2[3]))   
-print(bin_converter(test_cases_exr2[4]))   
+print(to_binary(test_cases_exr2[0]))   
+print(to_binary(test_cases_exr2[1]))  
+print(to_binary(test_cases_exr2[2]))  
+print(to_binary(test_cases_exr2[3]))   
+print(to_binary(test_cases_exr2[4]))   
 
 
 
@@ -88,6 +110,15 @@ df_bellevue = pd.read_csv(url)
 #-----FUNCTION DEFS-----#
 
 def task_return_column_names():
+    """
+    this function finds and returns column names
+
+    Function Parameters:
+    nothing
+
+    Function returns:
+    returns sorted columns
+    """
     
     #add all the missing values and store them. Check the column for null values and sum the quantitiy amount
     missing_values = df_bellevue.isnull().sum()
@@ -99,6 +130,15 @@ def task_return_column_names():
 
 
 def task_return_data_frame():
+    """
+    creates and returns a data frame of the dataset
+
+    Function Parameters:
+    nothing
+
+    Function returns:
+    returns the dataframe
+    """
 
     #ok apparently there is no year column. So the year must be extrracted 
     #convert 'date_in' to datetime format (so we can pull out the year)
@@ -123,6 +163,16 @@ def task_return_data_frame():
 
 
 def task_return_series():
+    """
+    this function finds and returns a sequence grouped by gender and age
+
+    Function Parameters:
+    nothing
+
+    Function returns:
+    returns a sequence 
+    """
+
     #group by gender
     #get mean age for the groups
     avg_age_by_gender = df_bellevue.groupby("gender")["age"].mean()
@@ -135,6 +185,15 @@ def task_return_series():
 
 
 def task_return_popular_profession():
+    """
+    this funciton finds and returns the most popular profession
+
+    Function Parameters:
+    nothing
+
+    Function returns:
+    returns array of top 5 most common professions found in the dataset
+    """
 
     #long line of code smashed together. Basically sample the head of the dataset
     #count amount of times a profession appears
