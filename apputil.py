@@ -109,9 +109,12 @@ df_bellevue = pd.read_csv(url)
 
 #-----FUNCTION DEFS-----#
 
-def task_return_column_names():
+def task_1():
     """
-    this function finds and returns column names
+    FUNCTION NAME: task_return_column_names()
+
+    this function finds and returns column names. Also I had to rename every function to a generic task 1 so that the autograder would not break
+    so I have added the original function name above just so that it is more easy to read
 
     Function Parameters:
     nothing
@@ -129,8 +132,10 @@ def task_return_column_names():
     return sorted_cols
 
 
-def task_return_data_frame():
+def task_2():
     """
+    FUNCTION NAME: task_return_data_frame()
+
     creates and returns a data frame of the dataset
 
     Function Parameters:
@@ -162,8 +167,11 @@ def task_return_data_frame():
 
 
 
-def task_return_series():
+def task_3():
     """
+    FUNCTION NAME: task_return_series()
+
+
     this function finds and returns a sequence grouped by gender and age
 
     Function Parameters:
@@ -184,8 +192,11 @@ def task_return_series():
 
 
 
-def task_return_popular_profession():
+def task_4():
     """
+
+    FUNCTION NAME: task_return_popular_profession()
+
     this funciton finds and returns the most popular profession
 
     Function Parameters:
@@ -208,13 +219,13 @@ def task_return_popular_profession():
 #--------------------------------------------------------#
 #-----MAIN-----#
 print("-----Q1-----")
-task_return_column_names()
+task_1()
 print("-----Q2-----")
-task_return_data_frame()
+task_2()
 print("-----Q3-----")
-task_return_series()
+task_3()
 print("-----Q4-----")
-task_return_popular_profession()
+task_4()
 
 
 
