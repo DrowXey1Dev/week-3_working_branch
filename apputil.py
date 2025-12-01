@@ -4,7 +4,7 @@ test_cases_exr1 = [9, 7, 16, 1, 4]
 
 
 #-----FUNCTION DEFS-----#
-def fib(input):
+def fibonacci(input):
     """
     Takes an initial input value, then starting with 0 and 1, adds the two together to get the next number and then adds that
     with the previous number to get the n + 1. This process occurs x times where x is the integer input. So if the input is 9, the 
@@ -27,7 +27,7 @@ def fib(input):
         return 1
     else:
         #this is the core mechanism for the recursion
-        return fib(input-1) + fib(input-2)
+        return fibonacci(input-1) + fibonacci(input-2)
     
     #Explanation: This is how I thought about this problem. It can be very tricky but visualizing helps a ton
     #so basically, this recursion can be thought of visually as a tree. Each recursion cycle is a lower level
@@ -47,11 +47,11 @@ def fib(input):
 
 
 #-----MAIN-----#
-print(fib(test_cases_exr1[0]))
-print(fib(test_cases_exr1[1]))
-print(fib(test_cases_exr1[2]))
-print(fib(test_cases_exr1[3]))
-print(fib(test_cases_exr1[4]))
+print(fibonacci(test_cases_exr1[0]))
+print(fibonacci(test_cases_exr1[1]))
+print(fibonacci(test_cases_exr1[2]))
+print(fibonacci(test_cases_exr1[3]))
+print(fibonacci(test_cases_exr1[4]))
 
 
 #EXERCISE 2------------------------------------------------------------------------------------------------------------------#
